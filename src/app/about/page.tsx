@@ -200,6 +200,7 @@ export default function About() {
           </Link>
           <Link href="/" className="btn">
             Back Home
+            
           </Link>
         </div>
       </section>

@@ -1,103 +1,169 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main className="landing-root">
+      {/* HERO SECTION */}
+      <header
+        className="landing-hero"
+        style={{
+          backgroundImage:
+            "linear-gradient(180deg, rgba(6,8,20,0.65), rgba(10,12,24,0.28)), url('/hero-bg.jpg')",
+        }}
+        aria-label="Hero"
+      >
+        <div className="container">
+          <div className="hero-inner">
+            <div className="hero-text fade-up">
+              <h1>
+                Turn <span className="accent">retail data</span> into clear, visual stories.
+              </h1>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+              <p className="hero-lead">
+                Track KPIs, spot trends, compare categories and identify anomalies — all in a slick, presentation-ready
+                analytics experience. Explore the demo dashboard or scroll for sample visuals, KPIs and feature highlights.
+              </p>
+
+              <div className="hero-actions">
+                <a className="btn-primary" href="/dashboard">Open Dashboard</a>
+                <a className="btn-ghost" href="/about">Learn More</a>
+              </div>
+
+              <div className="hero-meta">
+                <div className="meta-item">
+                  <div className="meta-label">Data Source</div>
+                  <div className="meta-value">Demo retail dataset</div>
+                </div>
+                <div className="meta-item">
+                  <div className="meta-label">Updated</div>
+                  <div className="meta-value">Today — live preview</div>
+                </div>
+              </div>
+            </div>
+
+            <aside className="hero-aside floaty">
+              <div className="metric">
+                <div className="metric-label">Revenue (30d)</div>
+                <div className="metric-value">$342,810</div>
+                <div className="metric-sub positive">+14.2%</div>
+              </div>
+
+              {/* local sparkline image */}
+              <img
+                className="hero-spark"
+                src="/hero-spark.jpg"
+                alt="sparkline placeholder"
+                loading="lazy"
+              />
+
+              <div className="mini-cta">
+                <a className="btn-primary small" href="/dashboard">Open Demo</a>
+                <a className="btn-ghost small" href="/docs">View docs</a>
+              </div>
+            </aside>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+
+        {/* subtle decorative overlay SVG to add depth */}
+        <svg className="hero-overlay" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden>
+          <path d="M0,40 C360,0 1080,80 1440,40 L1440 80 L0 80 Z" fill="rgba(255,255,255,0.02)" />
+        </svg>
+      </header>
+
+      {/* KEY KPI GRID */}
+      <section className="container kpi-grid fade-up">
+        <div className="kpi-card">
+          <div className="kpi-title">Total Revenue</div>
+          <div className="kpi-value">$4,120,540</div>
+          <div className="kpi-note">Year to date • +9.8%</div>
+        </div>
+
+        <div className="kpi-card">
+          <div className="kpi-title">Orders (30d)</div>
+          <div className="kpi-value">27,830</div>
+          <div className="kpi-note">Avg order value $52.60</div>
+        </div>
+
+        <div className="kpi-card">
+          <div className="kpi-title">Conversion</div>
+          <div className="kpi-value">3.8%</div>
+          <div className="kpi-note">Sessions → Purchase</div>
+        </div>
+
+        <div className="kpi-card">
+          <div className="kpi-title">Active Stores</div>
+          <div className="kpi-value">214</div>
+          <div className="kpi-note">EMEA / APAC / NA</div>
+        </div>
+      </section>
+
+      {/* ANALYTICS DETAIL SECTION */}
+      <section className="container analytics-details fade-up">
+        <div className="analytics-left">
+          <h2>What the analytics show</h2>
+          <p className="muted">
+            The dashboard surfaces high-impact signals: trending SKUs, promotion lift by region, time-series anomalies,
+            and cohort performance. Filters let you isolate by store cluster, category, or date range for fast root-cause analysis.
+          </p>
+
+          <ul className="detail-list">
+            <li><strong>Trend detection:</strong> Auto-detected events and seasonal patterns with suggested baselines.</li>
+            <li><strong>Promotion lift:</strong> Compare treated vs control stores and calculate incremental revenue.</li>
+            <li><strong>Cohort analysis:</strong> Retention and repeat purchase behavior by acquisition channel.</li>
+          </ul>
+
+          <div className="analytics-actions">
+            <a className="btn-primary" href="/dashboard">Explore analytics</a>
+            <a className="btn-ghost" href="/tutorial">View tutorial</a>
+          </div>
+        </div>
+
+        <div className="analytics-right">
+          <img
+            src="/analytics-detail.jpg"
+            alt="Analytics dashboard screenshot"
+            loading="lazy"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        </div>
+      </section>
+
+      {/* GALLERY SECTION */}
+      <section className="container gallery fade-up">
+        <h3>In-store moments</h3>
+        <p className="muted">Contextual images that tie metrics to real-world operations.</p>
+
+        <div className="gallery-grid">
+          <figure>
+            <img src="/gallery-display.jpg" alt="display" loading="lazy" />
+            <figcaption>Merch displays</figcaption>
+          </figure>
+          <figure>
+            <img src="/gallery-aisle.jpg" alt="aisle" loading="lazy" />
+            <figcaption>Front aisle</figcaption>
+          </figure>
+          <figure>
+            <img src="/gallery-staff.jpg" alt="staff" loading="lazy" />
+            <figcaption>Team on floor</figcaption>
+          </figure>
+          <figure>
+            <img src="/gallery-customers.jpg" alt="customers" loading="lazy" />
+            <figcaption>Customers</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      {/* CTA SECTION */}
+      <section className="container cta fade-up">
+        <div className="cta-inner">
+          <div>
+            <h3>See it in action</h3>
+            <p className="muted">Open the interactive demo and analyze the retail dataset in minutes.</p>
+          </div>
+
+          <div className="cta-actions">
+            <a className="btn-primary" href="/dashboard">Open Demo</a>
+            <a className="btn-ghost" href="/contact">Contact Sales</a>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
